@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+    <title>AST</title>
+</head>
+<body style="text-align:center;">
+
+<div id="exp" style="margin:10px 0;font-size:25px;"></div>
+<div id="main" style="width:100%;height:600px;border:1px solid black;"></div>
+
+<script>
+
+document.getElementById('exp').innerText = exp;
+
+var myChart = echarts.init(document.getElementById('main'), 'macarons');
+
+myChart.setOption(option = {
+    tooltip: {
+        trigger: 'item',
+        triggerOn: 'mousemove'
+    },
+    series: [
+        {
+            type: 'tree',
+
+            data: [data],
+
+            top: '5%',
+            left: '5%',
+            bottom: '5%',
+            right: '5%',
+
+            symbolSize: 10,
+            orient: 'vertical',
+            initialTreeDepth: -1,
+
+            label: {
+                normal: {
+                    position: 'left',
+                    verticalAlign: 'middle',
+                    align: 'right',
+                    fontSize: 20
+                }
+            },
+
+            leaves: {
+                label: {
+                    normal: {
+                        position: 'right',
+                        verticalAlign: 'middle',
+                        align: 'left'
+                    }
+                }
+            },
+
+            expandAndCollapse: true,
+            animationDuration: 550,
+            animationDurationUpdate: 750
+        }
+    ]
+});
+</script>
+
+</body>
+</html>
