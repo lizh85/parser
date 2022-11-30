@@ -8,7 +8,7 @@
 
 #### 例子
 
-```
+```java
 package lizh.priv.parser.execute;
 
 import java.util.stream.Collectors;
